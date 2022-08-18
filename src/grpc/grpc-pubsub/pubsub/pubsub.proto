@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+option go_package="./;pubsub";
+
+
+message String {
+    string value = 1;
+}
+
+service PubsubService {
+    rpc Publish (String) returns (String);
+    rpc Subscribe (String) returns (stream String);
+}
