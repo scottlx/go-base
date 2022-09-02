@@ -6,6 +6,7 @@ require (
 	github.com/Juniper/go-netconf v0.1.1
 	github.com/bwmarrin/snowflake v0.3.0
 	github.com/chai2010/errors v0.0.0-20200705094421-c57ad8baa2b0
+	github.com/cilium/ebpf v0.9.1
 	github.com/docker/docker v20.10.13+incompatible
 	github.com/gin-gonic/gin v1.8.1
 	github.com/go-redis/redis v6.15.9+incompatible
@@ -52,7 +53,7 @@ require (
 	github.com/goccy/go-json v0.9.7 // indirect
 	github.com/gogo/protobuf v1.3.2 // indirect
 	github.com/google/gnostic v0.5.7-v3refs // indirect
-	github.com/google/go-cmp v0.5.5 // indirect
+	github.com/google/go-cmp v0.5.6 // indirect
 	github.com/google/gofuzz v1.1.0 // indirect
 	github.com/google/uuid v1.3.0 // indirect
 	github.com/grpc-ecosystem/go-grpc-prometheus v1.2.0 // indirect

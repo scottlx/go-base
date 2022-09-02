@@ -2,28 +2,21 @@ package main
 
 import (
 	"fmt"
-	"go-base/src/ringbuffer"
-	"strconv"
+	"unsafe"
 )
 
-func main() {
-	r := ringbuffer.NewRing(5)
-	for i := 0; i < 4; i++ {
-		r.Enqueue(strconv.Itoa(i))
-	}
-	for i := 0; i < 5; i++ {
-		if str, err := r.Dequeue(); err == nil {
-			fmt.Println("get ", str)
-		} else {
-			fmt.Println("error: ", err)
-		}
-	}
-	r.Enqueue(strconv.Itoa(5))
-	if str, err := r.Dequeue(); err == nil {
-		fmt.Println("get ", str)
-	} else {
-		fmt.Println("error: ", err)
-	}
+type Programmer struct {
+	name     string
+	age      int
+	language string
+}
 
-	//ringbuffer.Test()
+func main() {
+	p := Programmer{"stefno", 18, "go"}
+	fmt.Println(p)
+
+	lang := (*string)(unsafe.Pointer(uintptr(unsafe.Pointer(&p)) + unsafe.Sizeof(int(0)) + unsafe.Sizeof(string(""))))
+	*lang = "Golang"
+
+	fmt.Println(p)
 }

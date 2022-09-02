@@ -6,6 +6,7 @@ import (
 	"strconv"
 	"sync"
 	"sync/atomic"
+	"testing"
 	"time"
 )
 
@@ -39,6 +40,7 @@ func (r *Ring) Enqueue(elem string) {
 	}
 }
 
+//overwrite mode
 func (r *Ring) enqueue(elem string) error {
 	var localProdNext, localProdHead, localConsTail uint32
 	localProdHead = atomic.LoadUint32(&r.prodHead)
@@ -76,7 +78,7 @@ func (r *Ring) Dequeue() (string, error) {
 		localConsNext = localConsHead + 1
 	}
 
-	if localConsHead >= localProdTail {
+	if localConsHead == localProdTail {
 		return "", errors.New("buffer is empty")
 	}
 
@@ -87,7 +89,7 @@ func (r *Ring) Dequeue() (string, error) {
 	return res, nil
 }
 
-func Test() {
+func TestSingleRoutine(t *testing.T) {
 	r := NewRing(5)
 	var wg sync.WaitGroup
 	wg.Add(10)
@@ -112,4 +114,28 @@ func Test() {
 	time.Sleep(time.Second * 1)
 	cond.Broadcast()
 	wg.Wait()
+}
+
+func TestMultiRoutine(t *testing.T) {
+	r := NewRing(5)
+	for i := 0; i < 6; i++ {
+		r.Enqueue(strconv.Itoa(i))
+	}
+	for i := 0; i < 5; i++ {
+		if str, err := r.Dequeue(); err == nil {
+			fmt.Println("get ", str)
+			fmt.Println(r)
+		} else {
+			fmt.Println("error: ", err)
+			fmt.Println(r)
+		}
+	}
+	r.Enqueue(strconv.Itoa(5))
+	if str, err := r.Dequeue(); err == nil {
+		fmt.Println("get ", str)
+	} else {
+		fmt.Println("error: ", err)
+	}
+
+	//ringbuffer.Test()
 }
