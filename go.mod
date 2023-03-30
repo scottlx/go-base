@@ -5,15 +5,18 @@ go 1.17
 require (
 	github.com/Juniper/go-netconf v0.1.1
 	github.com/bwmarrin/snowflake v0.3.0
+	github.com/c-seeger/mac-gen-go v0.0.0-20210816124238-465118e656da
 	github.com/chai2010/errors v0.0.0-20200705094421-c57ad8baa2b0
 	github.com/cilium/ebpf v0.9.1
 	github.com/docker/docker v20.10.13+incompatible
+	github.com/fsnotify/fsnotify v1.4.9
 	github.com/gin-gonic/gin v1.8.1
 	github.com/go-redis/redis v6.15.9+incompatible
 	github.com/golang/protobuf v1.5.2
 	github.com/gorilla/handlers v1.5.1
 	github.com/gorilla/mux v1.8.0
 	github.com/julienschmidt/httprouter v1.3.0
+	github.com/olahol/melody v1.1.3
 	github.com/prometheus/client_golang v1.12.1
 	github.com/samuel/go-zookeeper v0.0.0-20201211165307-7117e9ea2414
 	github.com/urfave/negroni v1.0.0
@@ -56,11 +59,13 @@ require (
 	github.com/google/go-cmp v0.5.6 // indirect
 	github.com/google/gofuzz v1.1.0 // indirect
 	github.com/google/uuid v1.3.0 // indirect
+	github.com/gorilla/websocket v1.5.0 // indirect
 	github.com/grpc-ecosystem/go-grpc-prometheus v1.2.0 // indirect
 	github.com/grpc-ecosystem/grpc-gateway v1.16.0 // indirect
 	github.com/josharian/intern v1.0.0 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
 	github.com/leodido/go-urn v1.2.1 // indirect
+	github.com/magefile/mage v1.11.0 // indirect
 	github.com/mailru/easyjson v0.7.6 // indirect
 	github.com/mattn/go-isatty v0.0.14 // indirect
 	github.com/matttproud/golang_protobuf_extensions v1.0.2-0.20181231171920-c182affec369 // indirect
@@ -104,7 +109,7 @@ require (
 	google.golang.org/appengine v1.6.7 // indirect
 	google.golang.org/genproto v0.0.0-20220310185008-1973136f34c6 // indirect
 	gopkg.in/inf.v0 v0.9.1 // indirect
-	gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b // indirect
+	gopkg.in/yaml.v3 v3.0.1 // indirect
 	k8s.io/api v0.24.0 // indirect
 	k8s.io/client-go v0.24.0 // indirect
 	k8s.io/component-base v0.24.0 // indirect
